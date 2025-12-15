@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -58,5 +59,17 @@ public class UserController {
 
         userRepository.delete(user);
         return ResponseEntity.noContent().build();
+    }
+
+    public class TestController {
+
+        @Autowired
+        DataSource dataSource;
+
+        @GetMapping("/db-test")
+        public String testDb() throws Exception {
+            dataSource.getConnection();
+            return "✅ Database Connected Successfully!";
+        }
     }
 }
