@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.sql.DataSource;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://myschool-demo.netlify.app/")
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
@@ -32,7 +32,7 @@ public class UserController {
     // Get a user by ID
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) throws Throwable {
-        User user = (User) userRepository.findById(id)
+        User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
         return ResponseEntity.ok(user);
     }
