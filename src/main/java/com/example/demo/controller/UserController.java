@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.sql.DataSource;
 import java.util.List;
 
-@CrossOrigin(origins = "https://myschool-demo.netlify.app/")
+@CrossOrigin(origins = "https://myschool-demo.netlify.app")
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
